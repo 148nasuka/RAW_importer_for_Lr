@@ -9,7 +9,7 @@
   <ol>
     <li>無料版LightroomのRAW編集制限の解除</li>
     <li>カメラSDカードからの直接インポート＆変換</li>
-    <li>Lightroomへ編集プリセットの追加<li>
+    <li>Lightroomへ編集プリセットの追加</li>
   </ol>
 </p>
 
