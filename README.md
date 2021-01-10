@@ -23,7 +23,7 @@
     <li>"RAW_importer_for_Lr/main/"　アプリのソースコードとアセットが格納されています。</li>
     <li>"RAW_importer_for_Lr/release/"　アプリケーション本体.apkファイルが格納されています。</li><br>
     <li>"RAW_importer_for_Lr/main/assets/"　Lightroom編集プリセットの設定ファイルが格納されています。</li>
-    <li>"RAW_importer_for_Lr/main/cpp/"　C++ネイティブ拡張のソースコードが格納されています。（本アプリの動作では使用されていません）</li>
+    <li>"RAW_importer_for_Lr/main/cpp/"　C++ネイティブ拡張のソースコードが格納されています。（本アプリの動作では未使用）</li>
     <li>"RAW_importer_for_Lr/main/java/.../RAW_importer_for_Lr"　本アプリのメインソースコードが格納されています。</li>
     <li>"RAW_importer_for_Lr/main/res/"　本アプリに使用されるテキストデータと画像データなどが格納されています。</li>
 </ol>
