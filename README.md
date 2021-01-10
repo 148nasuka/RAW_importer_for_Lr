@@ -21,7 +21,7 @@
   このレポジトリの書くディレクトリには以下の内容が格納されています。
   <ul>
     <li>"RAW_importer_for_Lr/main/"　<b>アプリのソースコードとアセット</b></li>
-    <li>"RAW_importer_for_Lr/release/"　<b>アプリケーション本体.apkファイル</b></li><br>
+    <li>"RAW_importer_for_Lr/release/"　<b>アプリケーション本体.apkファイル</b></li><br><hr>
     <li>"RAW_importer_for_Lr/main/assets/"　<b>Lightroom編集プリセットの設定ファイル</b></li>
     <li>"RAW_importer_for_Lr/main/cpp/"　<b>C++ネイティブ拡張のソースコード（本アプリの動作では未使用）</b></li>
     <li>"RAW_importer_for_Lr/main/java/.../RAW_importer_for_Lr"　<b>本アプリのメインソースコード</b></li>
