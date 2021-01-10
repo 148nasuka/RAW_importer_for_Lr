@@ -11,7 +11,7 @@
   </ol>
 </p>
 <p>
-  このアプリの詳細については<a href = "https://play.google.com/store/apps/details?id=com.nasuka.rifl" target="_blank"><b>GooglePlayのストアページ</b></a>を参照してください。
+  このアプリの詳細については<a href = "https://play.google.com/store/apps/details?id=com.nasuka.rifl" target="_blank" rel="noopener noreferrer"><b>GooglePlayのストアページ</b></a>を参照してください。
 </p>
 
 <h1>このレポジトリについて</h1>
