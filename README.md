@@ -5,9 +5,11 @@
   このアプリはフリー版のLightroomでのカメラからのRAWを編集する事ができない問題を解決します。<br>
   主な機能
   <ol>
-    <li>無料版LightroomのRAW編集制限の解除</li>
-    <li>カメラSDカードからの直接インポート＆変換</li>
-    <li>Lightroomへ編集プリセットの追加</li>
+    <b>
+      <li>無料版LightroomのRAW編集制限の解除</li>
+      <li>カメラSDカードからの直接インポート＆変換</li>
+      <li>Lightroomへ編集プリセットの追加</li>
+    </b>
   </ol>
 </p>
 <p>
