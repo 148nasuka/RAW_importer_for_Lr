@@ -3,7 +3,7 @@
 <h1>アプリ概要（About this App）</h1>
 <p>
   このアプリはフリー版のLightroomでのカメラからのRAWを編集する事ができない問題を解決します。<br>
-  主な機能
+  <b>主な機能</b>
   <ol>
     <b>
       <li>無料版LightroomのRAW編集制限の解除</li>
@@ -31,3 +31,5 @@
     <li>"RAW_importer_for_Lr/main/res/"　<b>本アプリに使用されるテキストデータや画像データなど</b></li>
 </ul>
 </p>
+
+<p>作成者：佐藤拓実</p>
