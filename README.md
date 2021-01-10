@@ -20,11 +20,11 @@
 <p>
   このレポジトリの書くディレクトリには以下の内容が格納されています。
   <ul>
-    <li>"RAW_importer_for_Lr/main/"　アプリのソースコードとアセットが格納されています。</li>
-    <li>"RAW_importer_for_Lr/release/"　アプリケーション本体.apkファイルが格納されています。</li><br>
-    <li>"RAW_importer_for_Lr/main/assets/"　Lightroom編集プリセットの設定ファイルが格納されています。</li>
-    <li>"RAW_importer_for_Lr/main/cpp/"　C++ネイティブ拡張のソースコードが格納されています。（本アプリの動作では未使用）</li>
-    <li>"RAW_importer_for_Lr/main/java/.../RAW_importer_for_Lr"　本アプリのメインソースコードが格納されています。</li>
-    <li>"RAW_importer_for_Lr/main/res/"　本アプリに使用されるテキストデータと画像データなどが格納されています。</li>
+    <li>"RAW_importer_for_Lr/main/"　アプリのソースコードとアセット</li>
+    <li>"RAW_importer_for_Lr/release/"　アプリケーション本体.apkファイル</li><br>
+    <li>"RAW_importer_for_Lr/main/assets/"　Lightroom編集プリセットの設定ファイル</li>
+    <li>"RAW_importer_for_Lr/main/cpp/"　C++ネイティブ拡張のソースコード（本アプリの動作では未使用）</li>
+    <li>"RAW_importer_for_Lr/main/java/.../RAW_importer_for_Lr"　本アプリのメインソースコード</li>
+    <li>"RAW_importer_for_Lr/main/res/"　本アプリに使用されるテキストデータや画像データなど</li>
 </ul>
 </p>
