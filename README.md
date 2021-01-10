@@ -2,15 +2,16 @@
 
 <h1>アプリ概要（About this App）</h1>
 <p>
-  このアプリはフリー版のLightroomでのカメラからのRAWを編集する事ができない問題を解決します。
-</p>
-<p>
+  このアプリはフリー版のLightroomでのカメラからのRAWを編集する事ができない問題を解決します。<br>
   主な機能
   <ol>
     <li>無料版LightroomのRAW編集制限の解除</li>
     <li>カメラSDカードからの直接インポート＆変換</li>
     <li>Lightroomへ編集プリセットの追加</li>
   </ol>
+</p>
+<p>
+  このアプリの詳細については<a href = "https://play.google.com/store/apps/details?id=com.nasuka.rifl"　target="_blank"><b>GooglePlayのストアページ</b></a>を参照してください。
 </p>
 
 <h1>このレポジトリについて</h1>
