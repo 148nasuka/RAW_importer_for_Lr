@@ -16,12 +16,12 @@
   このアプリの詳細については<a href = "https://play.google.com/store/apps/details?id=com.nasuka.rifl" target="_blank" rel="noopener noreferrer"><b>GooglePlayのストアページ</b></a>を参照してください。
 </p>
 
-<h1>このレポジトリについて</h1>
+<h1>このリポジトリについて</h1>
 <h3>
-  このレポジトリはこのアプリケーションを構成しているソースコードを明示的に公開することを目的として作られています。
+  このリポジトリはこのアプリケーションを構成しているソースコードを明示的に公開することを目的として作られています。
 </h3>
 <p>
-  このレポジトリの各ディレクトリには以下の内容が格納されています。
+  このリポジトリの各ディレクトリには以下の内容が格納されています。
   <ul>
     <li>"RAW_importer_for_Lr/main/"　<b>アプリのソースコードとアセット</b></li>
     <li>"RAW_importer_for_Lr/release/"　<b>アプリケーション本体.apkファイル</b></li><hr>
