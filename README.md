@@ -48,7 +48,7 @@
   <ul>
     <b>
       <li>外部SDカードからの直接変換機能を実装</li>
-      <li>Lightroom編集プリセット追加機能を実装/li>
+      <li>Lightroom編集プリセット追加機能を実装</li>
       <li>使い方Tipsを更新</li>
       <li>多言語対応</li>
     </b>
