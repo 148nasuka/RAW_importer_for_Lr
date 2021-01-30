@@ -1,0 +1,31 @@
+<resources>
+    <string name="app_name">RAW importer for Lr</string>
+    <string name="app_bar">RAW importer for Lr</string>
+    <string name="HowTo">How to use</string>
+    <string name="HowToSub" translatable="true">Swipe to see the next description</string>
+    <string name="LaunchLr" translatable="true">Launch Lightroom</string>
+    <string name="SelectPic">Select pictures</string>
+    <string name="UserPreset">Presets for Lr</string>
+    <string name="PresetSub">You can install presets for Lr</string>
+    <string name="Confirm">Verification</string>
+    <string name="Install">"Install the following packs?\n"</string>
+    <string name="complete">Installation completed</string>
+    <string name="About">About this app</string>
+    <string name="About_sent1">This app is an app that converts RAW files from a single-lens reflex camera into files that can be edited with the mobile app version of Lightroom.\n\n\n
+        About data handling\n
+        This application reads the files in your device, but only the media files (images) stored in your device.
+        The read file only changes its name, so it does not change the contents of the file.
+        In addition, this app does not make any changes to the files managed by Lightroom, and modifies the files before they are loaded into Lightroom.\n\n\n
+        About Privacy\n
+        Since this application processes completely offline, it does not send the user\'s personal data to the outside at all, but device data such as the device name is sent to Google for the purpose of improving the service.\n\n\n
+        If you have any comments or feedback, please contact Play Store or Email Address.\n
+        Mail：148nasuka@gmail.com
+    </string>
+    <string name="Notice">Notice</string>
+    <string name="Sorry">Sorry, can not add presets with your device version</string>
+    <string name="Comp">Complete!!</string>
+    <string name="skip">non-RAW images skipped</string>
+    <string name="not_install">Lightroom is not installed!!</string>
+    <string name="Gphoto">Google photos is not installed!!</string>
+
+</resources>

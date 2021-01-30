@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">RAW importer for Lr</string>
+    <string name="HowTo" translatable="false">使い方</string>
+    <string name="HowToSub">スワイプして次の説明へ</string>
+    <string name="LaunchLr">Lightroomを起動</string>
+    <string name="SelectPic">写真を選択</string>
+    <string name="app_bar">RAW importer for Lr</string>
+    <string name="UserPreset">Lr用プリセット集</string>
+    <string name="PresetSub">ここからプリセットをインストールできます</string>
+    <string name="Confirm">確認</string>
+    <string name="Install">以下のパックをインストールしますか？\n</string>
+    <string name="complete">インストール完了しました</string>
+    <string name="About">このアプリについて</string>
+    <string name="About_sent1">本アプリは一眼レフからのRAWファイルをモバイルアプリ版のLightroomで編集可能なファイルに変換するアプリです。\n\n\n
+        データの扱いについて\n
+        本アプリは端末内のファイルを読み取りますが、端末内に保蔵されているメディアファイル（画像）のみを読み取ります。
+        読み取ったファイルは名前の変更のみを行うため、ファイルの内容には変化を加えません。
+        また、このアプリはLightroomの管理するファイルには一切変更を加えず、Lightroomに読み込む前のファイルに手を加えるものとなります。\n\n\n
+        プライバシーについて\n
+        本アプリは完全オフラインで処理を行うのでユーザの個人データを外部に送信することは一切ありませんが、端末名などの機器データはサービスの改善を目的にGoogleに送信されます。\n\n\n
+        意見、フィードバックがございましたらPlayStoreもしくはメールアドレスまでご連絡ください。\n
+        Mail：148nasuka@gmail.com
+    </string>
+    <string name="Notice">お知らせ</string>
+    <string name="Sorry">申し訳ありませんが、お使いの端末のバージョンではプリセットを追加することはできません。</string>
+    <string name="Comp">変換完了!!</string>
+    <string name="skip">個のRAW画像ではない写真をスキップしました</string>
+    <string name="not_install">Lightroomがインストールされていません！！</string>
+    <string name="Gphoto">Googleフォトがインストールされていません！！</string>
+</resources>
