@@ -62,7 +62,7 @@
       <li>RAW画像のみを変換するように変更</li>
       <li>Lightroom編集プリセットを10種類追加</li>
       <li>使い方Tipsを更新</li>
-      <li>Android11をサポート（Androidの仕様変更により編集プリセット追加不可）</li>
+      <li>Android11をサポート（Androidの仕様変更により、現状編集プリセット追加不可）</li>
       <li>ViewPagerの切り替え処理を効率化</li>
       <li>文字リソースファイルを使用して全体的にプログラムを整理</li>
     </b>
