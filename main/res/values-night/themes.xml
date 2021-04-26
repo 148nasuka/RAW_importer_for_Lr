@@ -5,6 +5,7 @@
         <item name="colorPrimary">#1473E6</item>
         <item name="colorPrimaryVariant">#232323</item>
         <item name="colorOnPrimary">#161616</item>
+        <item name="colorAccent">#1473E6</item>
         <!-- Secondary brand color. -->
         <item name="colorSecondary">#1473E6</item>
         <item name="colorSecondaryVariant">#1473E6</item>

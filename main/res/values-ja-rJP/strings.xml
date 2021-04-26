@@ -23,7 +23,10 @@
         Mail：148nasuka@gmail.com
     </string>
     <string name="Notice">お知らせ</string>
-    <string name="Sorry">申し訳ありませんが、お使いの端末のバージョンではプリセットを追加することはできません。</string>
+    <string name="Sorry">お使いの端末のバージョンではプリセットの自動追加をすることはできません。\n\n
+        Lightroomアプリから手動で選択して追加してください。 \n\n
+        保存先：/storage/emulated/Pictures/RAW_importer/Presets/
+    </string>
     <string name="Comp">変換完了!!</string>
     <string name="skip">個のRAW画像ではない写真をスキップしました</string>
     <string name="not_install">Lightroomがインストールされていません！！</string>

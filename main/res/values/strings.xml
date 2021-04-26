@@ -22,7 +22,10 @@
         Mail：148nasuka@gmail.com
     </string>
     <string name="Notice">Notice</string>
-    <string name="Sorry">Sorry, can not add presets with your device version</string>
+    <string name="Sorry">Presets cannot be added automatically with the version of your device. \n\n
+        Add it manually from the Lightroom app. \n\n
+        Saved location : /storage/emulated/Pictures/RAW_importer/Presets/
+    </string>
     <string name="Comp">Complete!!</string>
     <string name="skip">non-RAW images skipped</string>
     <string name="not_install">Lightroom is not installed!!</string>
