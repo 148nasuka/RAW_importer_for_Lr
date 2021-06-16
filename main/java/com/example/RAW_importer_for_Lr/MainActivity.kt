@@ -197,6 +197,7 @@ class MainActivity : AppCompatActivity() {
             .show()
     }
 
+    @RequiresApi(Build.VERSION_CODES.Q)
     fun convert(
             original_name: String?,
             filename: File,
@@ -206,9 +207,6 @@ class MainActivity : AppCompatActivity() {
             Itemcount: Int
     ): Int {
         var add_count = 0
-        val Filename = filename
-        val URI = uri
-        val f = file
         val locale = Locale.getDefault()
         val lang = locale.language
 
@@ -240,15 +238,15 @@ class MainActivity : AppCompatActivity() {
                 comp_bar.duration = 5000
 
                 val inputStream: InputStream? = contentResolver.openInputStream(uri)
-                if (inputStream != null) {
-                    convertFiles(this, nowcount, Itemcount, comp_bar, Filename, inputStream).execute()
-                }
 
-                val contentValues = ContentValues().apply {
-                    put(MediaStore.Images.Media.MIME_TYPE, "image/png") //Androidのメディアストアに登録してギャラリーでも表示可能にする
-                    put("_data", f.absolutePath)
+                if (inputStream != null) {
+                    val contentValues = ContentValues().apply {
+                        put(MediaStore.Images.Media.MIME_TYPE, "image/dng") //Androidのメディアストアに登録してギャラリーでも表示可能にする
+                        put("_data", file.absolutePath)
+                    }
+                    contentResolver.insert(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, contentValues)
+                    convertFiles(this, nowcount, Itemcount, comp_bar, filename, inputStream).execute()
                 }
-                contentResolver.insert(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, contentValues)
 
             }else{
                 add_count += 1
