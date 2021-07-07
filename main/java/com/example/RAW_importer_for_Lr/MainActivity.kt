@@ -181,7 +181,7 @@ class MainActivity : AppCompatActivity() {
     private fun OpenPhotoGallery() {    //ドキュメントプロバイダにインテントする
         val intent = Intent(Intent.ACTION_GET_CONTENT)
         intent.putExtra(Intent.EXTRA_ALLOW_MULTIPLE, true)
-        intent.type = "image/*"
+        intent.type = "*/*"
         startActivityForResult(
                 Intent.createChooser(intent, "Choose Photo"),
                 CHOOSE_PHOTO_REQUEST_CODE
@@ -199,12 +199,11 @@ class MainActivity : AppCompatActivity() {
 
     @RequiresApi(Build.VERSION_CODES.Q)
     fun convert(
-            original_name: String?,
-            filename: File,
-            uri: Uri,
-            file:File,
-            nowcount: Int,
-            Itemcount: Int
+        original_name: String?,
+        filename: File,
+        uri: Uri,
+        nowcount: Int,
+        Itemcount: Int
     ): Int {
         var add_count = 0
         val locale = Locale.getDefault()
@@ -225,6 +224,8 @@ class MainActivity : AppCompatActivity() {
                     original_name.takeLast(3) == "RW2" ||    //パナソニック
                     original_name.takeLast(3) == "tif")      //汎用
             {
+                val inputStream: InputStream? = contentResolver.openInputStream(uri)
+
                 var comp_message = "Complete!!\n(Non-RAW files will be skipped)"
                 if (lang == "ja"){
                     comp_message = "変換完了！！\n(RAW形式ではないファイルはスキップされます)"
@@ -236,16 +237,8 @@ class MainActivity : AppCompatActivity() {
                 )
                 comp_bar.view.setBackgroundColor(resources.getColor(R.color.sub_point))
                 comp_bar.duration = 5000
-
-                val inputStream: InputStream? = contentResolver.openInputStream(uri)
-
                 if (inputStream != null) {
-                    val contentValues = ContentValues().apply {
-                        put(MediaStore.Images.Media.MIME_TYPE, "image/dng") //Androidのメディアストアに登録してギャラリーでも表示可能にする
-                        put("_data", file.absolutePath)
-                    }
-                    contentResolver.insert(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, contentValues)
-                    convertFiles(this, nowcount, Itemcount, comp_bar, filename, inputStream).execute()
+                    convertFiles(this, nowcount, Itemcount, comp_bar, filename, inputStream, contentResolver).execute()
                 }
 
             }else{
@@ -274,7 +267,8 @@ class MainActivity : AppCompatActivity() {
             Itemcount: Int,
             bar: Snackbar,
             filename: File,
-            InputStream: InputStream
+            InputStream: InputStream,
+            Contentresolber: ContentResolver
     ) : AsyncTask<File, Int?, Int>() {
         var progressDialog: ProgressDialog? = null
         val now = nowcount
@@ -283,6 +277,7 @@ class MainActivity : AppCompatActivity() {
         var test = ProgressDialog(context)
         val copyRAW = filename
         val inputStream = InputStream
+        val contentResolver = Contentresolber
         override fun onPreExecute() {
 
             val locale = Locale.getDefault()
@@ -304,7 +299,6 @@ class MainActivity : AppCompatActivity() {
                     test = ProgressDialog(context)
                 }
             }
-
         }
 
         override fun doInBackground(vararg params: File): Int {
@@ -335,6 +329,29 @@ class MainActivity : AppCompatActivity() {
                 toast.show()
                 complete.show()
                 progressDialog?.dismiss()
+
+                val exported = File(
+                    Environment.getExternalStorageDirectory(),
+                    Environment.DIRECTORY_PICTURES
+                ).path + "/RAW_importer/"
+                val exported_list = File(exported).list()
+
+                if (exported_list != null){
+                    for ( i in exported_list.indices ) {
+                        if (exported_list[i] != "Presets"){
+                            val Newfile = File(exported + exported_list[i])
+                            val update_uri = Uri.fromFile(Newfile)
+                            val inputStream: InputStream? = contentResolver.openInputStream(update_uri)
+                            if (inputStream != null) {
+                                val contentValues = ContentValues().apply {
+                                    put(MediaStore.Images.Media.MIME_TYPE, "image/dng") //Androidのメディアストアに登録してギャラリーでも表示可能にする
+                                    put("_data", Newfile.absolutePath)
+                                }
+                                contentResolver.insert(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, contentValues)
+                            }
+                        }
+                    }
+                }
             }
         }
     }
@@ -345,42 +362,10 @@ class MainActivity : AppCompatActivity() {
 
         if (requestCode == CHOOSE_PHOTO_REQUEST_CODE && resultCode == RESULT_OK) {
 
-            val itemCount = data?.clipData?.itemCount?: 0
+            val itemCount = data?.clipData?.itemCount?: 1
             val uriList = mutableListOf<Uri>()
             var skip_count = 0
 
-            //一枚のみ変換
-            if (itemCount == 0){
-                var Original_Name: String? = null
-                val calendar = Calendar.getInstance()
-                val filename = "RW_" + (android.text.format.DateFormat.format(
-                        "yyyyMMddHHmmssss_",
-                        calendar
-                )).toString() +0+".dng"
-                val rawdir = File(
-                        Environment.getExternalStorageDirectory(),
-                        Environment.DIRECTORY_PICTURES
-                ).path + "/RAW_importer/"
-
-                val f = File(rawdir, filename)
-                val copyRAW = File(rawdir + filename)
-
-                data?.data?.also { uri ->
-                    val projection = arrayOf(MediaStore.MediaColumns.DISPLAY_NAME)
-                    val cursor: Cursor? = this.contentResolver
-                            .query(uri, projection, null, null, null)
-                    if (cursor != null) {
-                        if (cursor.moveToFirst()) {
-                            Original_Name = cursor.getString(
-                                    cursor.getColumnIndexOrThrow(MediaStore.MediaColumns.DISPLAY_NAME))
-                        }
-                        cursor.close()
-                    }
-                    skip_count += convert(Original_Name, copyRAW, uri, f, 1, 2)
-                }
-            }
-
-            //２枚以上変換
             for (i in 0 until itemCount) {
                 val uri = data?.clipData?.getItemAt(i)?.uri
                 uri?.let { uriList.add(it) }
@@ -388,30 +373,45 @@ class MainActivity : AppCompatActivity() {
                 var Original_Name: String? = null
                 val calendar = Calendar.getInstance()
                 val filename = "RW_" + (android.text.format.DateFormat.format(
-                        "yyyyMMddHHmmssss_",
-                        calendar
+                    "yyyyMMddHHmmssss_",
+                    calendar
                 )).toString() +i+".dng"
                 val rawdir = File(
-                        Environment.getExternalStorageDirectory(),
-                        Environment.DIRECTORY_PICTURES
+                    Environment.getExternalStorageDirectory(),
+                    Environment.DIRECTORY_PICTURES
                 ).path + "/RAW_importer/"
 
-                val f = File(rawdir, filename)
                 val copyRAW = File(rawdir + filename)
 
                 val projection = arrayOf(MediaStore.MediaColumns.DISPLAY_NAME)
                 val cursor: Cursor? = uri?.let {
                     this.contentResolver
-                            .query(it, projection, null, null, null)
+                        .query(it, projection, null, null, null)
                 }
                 if (cursor != null) {
                     if (cursor.moveToFirst()) {
                         Original_Name = cursor.getString(
-                                cursor.getColumnIndexOrThrow(MediaStore.MediaColumns.DISPLAY_NAME))
+                            cursor.getColumnIndexOrThrow(MediaStore.MediaColumns.DISPLAY_NAME))
                     }
                     cursor.close()
                 }
-                skip_count += convert(Original_Name, copyRAW, uriList[i], f, i, itemCount)
+                if (itemCount == 1){
+                    data?.data?.also { uri ->
+                        val projection = arrayOf(MediaStore.MediaColumns.DISPLAY_NAME)
+                        val cursor: Cursor? = this.contentResolver
+                            .query(uri, projection, null, null, null)
+                        if (cursor != null) {
+                            if (cursor.moveToFirst()) {
+                                Original_Name = cursor.getString(
+                                    cursor.getColumnIndexOrThrow(MediaStore.MediaColumns.DISPLAY_NAME))
+                            }
+                            cursor.close()
+                        }
+                        skip_count += convert(Original_Name, copyRAW, uri, 1, 2)
+                    }
+                }else{
+                    skip_count += convert(Original_Name, copyRAW, uriList[i], i, itemCount)
+                }
             }
         }
     }
